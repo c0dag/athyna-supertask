@@ -2,7 +2,6 @@ interface CompanyPhotoProps {
   name: string;
 }
 
-
 export function CompanyLetterPhoto({ name }: CompanyPhotoProps){
   const words = name.split(" "); 
   const firstLetters = words
@@ -15,5 +14,4 @@ export function CompanyLetterPhoto({ name }: CompanyPhotoProps){
       {firstLetters.toUpperCase()}
     </div>
   )
-
 }

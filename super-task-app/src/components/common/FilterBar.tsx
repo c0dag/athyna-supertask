@@ -10,8 +10,8 @@ import {
   SelectValue 
 } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
-import { JobType } from "@/types/JobType"
-import { FilterVariant } from "@/types/FilterVariant"
+import { JobType } from "@/types/job-type"
+import { FilterVariant } from "@/types/filter-variant"
 
 interface FilterBarProps {
   searchQuery: string

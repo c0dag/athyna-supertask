@@ -69,9 +69,8 @@ export function ApplicationModal({
       
       onOpenChange(false);
       reset();
-    } catch (error) {
+    } catch {
       toast.error('Failed to submit application');
-      console.error('Failed to submit application:', error);
     }
   };
 

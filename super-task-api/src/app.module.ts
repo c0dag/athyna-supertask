@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { JobsModule } from './jobs/jobs.module';
 import { PrismaModule } from './prisma/prisma.module';
-import { ApplicationsModule } from './jobapplications/applications.module';
+import { ApplicationsModule } from './job-applications/job-applications.module';
 import { CompaniesModule } from './companies/companies.module';
 
 @Module({

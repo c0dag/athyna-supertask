@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from '@/components/ui/badge'
 import type { Job } from "@/types/job"
 import { MapPin, Briefcase, ChevronRight, Globe, Clock } from "lucide-react"
-import { formatDate } from "@/lib/dateUtils"
+import { formatDate } from "@/lib/date"
 import { CompanyLetterPhoto } from "../common/CompanyLetterPhoto"
 
 interface JobCardProps {

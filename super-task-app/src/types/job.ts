@@ -1,7 +1,7 @@
 import type { Company } from './company'
 import type { PaginationType } from './paginations'
-import { JobStatus } from './JobStatus'
-import { JobType } from './JobType'
+import { JobStatus } from './job-status'
+import { JobType } from './job-type'
 
 export interface Job {
   id: string;

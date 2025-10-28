@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useCreateJob } from "@/services/jobs";
 import { useGetCompanies } from "@/services/companies";
-import { JobType } from "@/types/JobType";
+import { JobType } from "@/types/job-type";
 import type { CreateJobData } from "@/types/job";
 import { 
   Field, 
@@ -80,9 +80,8 @@ export function CreateJobForm() {
         location: '',
         salary: '',
       });
-    } catch (error) {
+    } catch {
       toast.error('Failed to create job');
-      console.error('Error creating job:', error);
     }
   };
 

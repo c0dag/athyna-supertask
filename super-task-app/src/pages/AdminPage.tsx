@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ApplicationsTable } from "@/components/jobApplications/ApplicationsTable";
-import { CreateJobForm } from "@/components/jobApplications/CreateJobForm";
+import { ApplicationsTable } from "@/components/job-applications/ApplicationsTable";
+import { CreateJobForm } from "@/components/job-applications/CreateJobForm";
 import { Header } from "@/components/common/Header";
 
 export function AdminPage() {

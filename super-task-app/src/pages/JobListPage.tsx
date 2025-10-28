@@ -9,7 +9,6 @@ import { JobCardSkeletonList } from '@/components/job/JobCardSkeleton';
 import { useState, useEffect } from 'react';
 import { parseUrlParam } from '@/lib/utils';
 
-
 export function JobListPage () {
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()

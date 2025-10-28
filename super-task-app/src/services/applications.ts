@@ -3,6 +3,9 @@ import type { ApplicationsResponse } from '@/types/application';
 import type { PaginationType } from '@/types/paginations';
 
 const APPLICATIONS_QUERY_KEY = 'applications';
+const JOBS_QUERY_KEY = 'jobs';
+const JOB_QUERY_KEY = 'job';
+
 
 export interface CreateApplicationData {
   jobId: string;
@@ -41,8 +44,6 @@ export const useGetApplications = (params: GetApplicationsParams = {}) => {
   });
 };
 
-
-
 export const useCreateApplication = () => {
   const queryClient = useQueryClient();
 
@@ -56,10 +57,9 @@ export const useCreateApplication = () => {
       if (!response.ok) throw new Error('Failed to create application');
       return response.json();
     },
-    onSuccess: (_, variables) => {
-      queryClient.invalidateQueries({ queryKey: [APPLICATIONS_QUERY_KEY] });
-      queryClient.invalidateQueries({ queryKey: ['jobs'] });
-      queryClient.invalidateQueries({ queryKey: ['job', variables.jobId] });
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [JOBS_QUERY_KEY] });
+      queryClient.invalidateQueries({ queryKey: [JOB_QUERY_KEY] });
     },
   });
 };

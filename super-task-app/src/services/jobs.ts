@@ -4,6 +4,7 @@ import type { Job } from "@/types/job"
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
 const JOBS_QUERY_KEY = 'jobs';
+const JOB_QUERY_KEY = 'job';
 
 export interface GetJobsParams extends Partial<PaginationType> {
   page?: number;
@@ -40,7 +41,7 @@ export const useGetJobById = (id?: string) => {
   const url = id ? `${import.meta.env.VITE_API_URL}/jobs/${id}` : undefined
 
   return useQuery<Job>({
-    queryKey: ['job', id],
+    queryKey: [JOB_QUERY_KEY, id],
     queryFn: async (): Promise<Job> => {
       if (!url) throw new Error('No job id provided')
 

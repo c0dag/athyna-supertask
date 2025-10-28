@@ -6,7 +6,7 @@ import { PaginationList } from '../common/Pagination';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { parseUrlParam } from '@/lib/utils';
-import { FilterVariant } from '@/types/FilterVariant';
+import { FilterVariant } from '@/types/filter-variant';
 
 export function ApplicationsTable() {
     const [searchParams, setSearchParams] = useSearchParams();

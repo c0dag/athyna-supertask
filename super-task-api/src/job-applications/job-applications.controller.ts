@@ -8,7 +8,7 @@ import {
   Query,
 } from '@nestjs/common';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
-import { ApplicationsService } from './applications.service';
+import { ApplicationsService } from './job-applications.service';
 import { CreateApplicationDto } from './dto/create-application.dto';
 import { ApplicationQueryDto } from './dto/application-query.dto';
 

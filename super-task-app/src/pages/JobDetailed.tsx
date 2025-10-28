@@ -6,11 +6,11 @@ import { Badge } from "@/components/ui/badge"
 import { CompanyLetterPhoto } from "@/components/common/CompanyLetterPhoto"
 import { ArrowLeft, MapPin, Briefcase, Building2, Clock, User, Award, FileText, CheckCircle2, DollarSign, Calendar } from "lucide-react"
 import { useGetJobById } from "@/services/jobs"
-import { JobStatus } from "@/types/JobStatus"
+import { JobStatus } from "@/types/job-status"
 import { ApplicationModal } from '@/components/job/ApplicationModal'
 import { Header } from '@/components/common/Header'
 import { formatSalary } from '@/lib/utils'
-import { formatDateLong } from '@/lib/dateUtils'
+import { formatDateLong } from '@/lib/date'
 import { JobDetailedSkeleton } from '@/components/job/JobDetailedSkeleton'
 
 export function JobDetailed() {

@@ -2,7 +2,7 @@ import type { Application } from "@/types/application";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, User, Mail, Building2, Phone, Copy } from "lucide-react";
-import { formatDate } from "@/lib/dateUtils";
+import { formatDate } from "@/lib/date";
 import { toast } from "sonner";
 
 export function ApplicationCard({ application }: { application: Application }) {
