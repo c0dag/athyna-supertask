@@ -122,7 +122,7 @@ The approach was inspired by jobs.athyna.com, including features such as job lis
 Since there’s no authentication, a boolean column in the database tracks applications, a key tradeoff. The /admin page is also unprotected and accessible directly via its route.
 
 ## Youtube video
-
+https://youtu.be/0D0y_g0wfvM
 
 ## What would I improve with more time
 
