@@ -10,8 +10,26 @@ export class JobsService {
   constructor(private prisma: PrismaService) {}
 
   async create(data: CreateJobDto) {
+    const jobData: any = {
+      title: data.title,
+      description: data.description,
+      skills: data.skills,
+      type: data.type,
+      companyId: data.companyId,
+    };
+
+    if (data.location) {
+      jobData.location = data.location;
+    }
+    if (data.salary !== undefined) {
+      jobData.salary = data.salary;
+    }
+    if (data.isRemote !== undefined) {
+      jobData.isRemote = data.isRemote;
+    }
+
     return this.prisma.job.create({
-      data,
+      data: jobData,
     });
   }
 

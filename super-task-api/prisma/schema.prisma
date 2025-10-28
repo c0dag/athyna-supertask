@@ -42,7 +42,6 @@ model Job {
 
   company       Company?      @relation(fields: [companyId], references: [id])
   companyId     String?
-  @@unique([companyId])
 }
 
 model Application {

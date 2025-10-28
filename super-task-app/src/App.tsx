@@ -14,6 +14,8 @@ function App() {
       <BrowserRouter>
         <Routes>
             <Route path="/" element={<JobListPage />} />
+            <Route path="/job/:id" element={<JobDetailed />} />
+            <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />

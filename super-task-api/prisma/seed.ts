@@ -455,7 +455,7 @@ const sampleJobs = [
     location: 'Rio de Janeiro, RJ',
     salary: 8500.0,
     type: 'FULL_TIME' as const,
-    companyId: 1, // TechCorp Solutions
+    companyId: 1,
     isRemote: false,
     isApplied: false,
   },
@@ -620,12 +620,17 @@ async function main() {
       continue;
     }
 
-    try {
-      const createdJob = await prisma.job.upsert({
-        where: {
-          companyId: companyId,
-        },
-        update: {
+    const existingJob = await prisma.job.findFirst({
+      where: {
+        title: job.title,
+        companyId: companyId,
+      },
+    });
+
+    if (existingJob) {
+      const updatedJob = await prisma.job.update({
+        where: { id: existingJob.id },
+        data: {
           title: job.title,
           description: job.description,
           skills: job.skills,
@@ -634,21 +639,10 @@ async function main() {
           type: job.type,
           isRemote: job.isRemote,
           isApplied: job.isApplied,
-        },
-        create: {
-          title: job.title,
-          description: job.description,
-          skills: job.skills,
-          location: job.location,
-          salary: job.salary,
-          type: job.type,
-          isRemote: job.isRemote,
-          isApplied: job.isApplied,
-          companyId: companyId,
         },
       });
-      createdJobs.push(createdJob);
-    } catch {
+      createdJobs.push(updatedJob);
+    } else {
       const createdJob = await prisma.job.create({
         data: {
           title: job.title,
@@ -716,11 +710,9 @@ async function main() {
 }
 
 main()
-  .catch((e) => {
-    console.error(e);
+  .catch(() => {
     process.exit(1);
   })
   .finally(async () => {
-    console.log('Database seeded successfully!');
     await prisma.$disconnect();
   });

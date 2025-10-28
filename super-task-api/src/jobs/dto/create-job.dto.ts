@@ -5,6 +5,7 @@ import {
   IsEnum,
   IsOptional,
   IsArray,
+  IsBoolean,
 } from 'class-validator';
 import { JobType } from '../../common/types/JobTypes';
 
@@ -31,4 +32,12 @@ export class CreateJobDto {
 
   @IsEnum(JobType)
   type: JobType;
+
+  @IsString()
+  @IsNotEmpty()
+  companyId: string;
+
+  @IsBoolean()
+  @IsOptional()
+  isRemote?: boolean;
 }
