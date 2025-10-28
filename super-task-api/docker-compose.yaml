@@ -1,0 +1,42 @@
+services:
+
+  db:
+    image: postgres:16-alpine
+    restart: always
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: supertaskdb
+    ports:
+      - 5435:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - super-task-network
+
+  api-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    image: super-task-api-dev
+    container_name: super-task-api-dev
+    env_file:
+      - .env
+    networks:
+      - super-task-network
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
+
+networks:
+  super-task-network:
+    external: true
+    name: super-task-network
